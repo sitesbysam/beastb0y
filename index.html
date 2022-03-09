@@ -1,0 +1,404 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" 
+        type="image/png" 
+        href="favicon.png">
+    <title>Andrew Cornish Music</title>
+</head>
+<body>
+    
+    <!-- Header -->
+    <img onclick="play_pause('header')" id="header" src="assets/webtitle-default.png">
+
+    <!-- Trigger/Open The Modal -->
+    <img id="latest-release-button" src="assets/latestrelease0.png"/>
+
+    <!-- The Modal -->
+    <div id="latest-release-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="latest-release-header" src="assets/latestrelease.png"/>
+            <!-- <h2>Latest Release</h2> -->
+            <!-- <iframe id="latest-release-coverart" style="border: 0; width: 350px; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=27971770/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/" seamless></iframe> -->
+            <img id="latest-release-coverart" src="assets/thefirstquarter.jpg"/>
+            <p id="latest-release-title">The First Quarter</p>
+            <p id="latest-release-title">EP</p>
+            <div class="latest-release-icon-row">
+                <a class="latest-release-links" id="latest-release-spotify" href="https://open.spotify.com/album/2gNmKvhHTYMLEtg0ilJD6L"><img src="assets/icons/spotify.svg"/></a>
+                <a class="latest-release-links" id="latest-release-apple"href="https://music.apple.com/us/album/the-first-quarter-ep/1588452959"><img src="assets/icons/apple-music.svg"/></a>
+            </div>
+            <div class="latest-release-icon-row">
+                <a class="latest-release-links" id="latest-release-youtube"href="https://music.youtube.com/playlist?list=OLAK5uy_mo2vFor8Utao6ljv7P-baIip_gNHuPTJs"><img src="assets/icons/Youtube_Music_icon.svg"/></a>
+                <a class="latest-release-links" id="latest-release-bandcamp"href="https://andrewcornishmusic.bandcamp.com/album/the-first-quarter-ep"><img src="assets/icons/bandcamp-button-bc-circle-aqua-128.png"/></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <div id="button-block">
+        <a href="https://open.spotify.com/artist/4k5xNc8dLAWJemHQv9Wmc1" class="buttons"><img id="spotify" src="assets/buttons/spotify.png"></a>
+        <a href="https://music.apple.com/us/artist/andrew-cornish/1588451912" class="buttons"><img id="apple" src="assets/buttons/apple.png"></a>
+        <a href="https://music.youtube.com/channel/UCDhgRj9d2rL90GQTww4tXRQ" class="buttons"><img id="youtube" src="assets/buttons/youtube.png"></a>
+        <a href="https://andrewcornishmusic.bandcamp.com/" class="buttons"><img id="bandcamp" src="assets/buttons/bandcamp.png"></a>
+    </div>
+
+    <!-- Icons -->
+    <div id="icon-block">
+        <a class="icons-link" id="website-link" href="https://andrewcornishmusiccom.wordpress.com/">
+            <div class="cross-fade">
+                <img class="bottom" id="website-hover" src="assets/icons/website-hover.png">
+                <img class="top" id="website" src="assets/icons/website.png">
+            </div>
+        </a>
+        <a class="icons-link" id="email-link" href="mailto:music@andrewcornish.me">
+            <div class="cross-fade">
+                <img id="email-hover" class="bottom" src="assets/icons/email-hover.png">
+                <img id="email" class="top" src="assets/icons/email.png">
+            </div>
+        </a>
+        <!--<a class="icons-link" id="instagram-link" href="https://www.instagram.com/andrewcornishmusic/"><img id="instagram" onmouseenter="icon_fade('instagram', true)" onmouseleave="icon_fade('instagram', false)" class="icons-img" src="assets/icons/instagram.png"></a>-->
+        <a class="icons-link" id="instagram-link" href="https://www.instagram.com/andrewcornishmusic/">
+            <div class="cross-fade">
+                <img id="instagram-hover" class="bottom" src="assets/icons/instagram-hover.png">
+                <img id="instagram" class="top" src="assets/icons/instagram.png">
+            </div>
+        </a>
+
+    </div>
+
+    <div>  
+        <a id="sitesbysam" href="https://sitesbysam.dev"><img src="assets/sbs-logo-full-darkbg.png"></a>
+    </div>
+
+    <script>
+        var song = new Audio('assets/music/tone2.wav');
+
+        song.onended = function() {
+            song.pause();
+            document.getElementById("header").src = "assets/webtitle-default.png";
+        }
+
+        //Plays the song. Just pass the id of the audio element.
+        function play_pause(id){
+
+            if (!song.paused){
+                song.pause();
+                document.getElementById("header").src = "assets/webtitle-default.png";
+            } else {
+                var rand = Math.floor(Math.random() * 5);
+                switch (rand) {
+                    case 0:
+                        document.getElementById("header").src = "assets/webtitle-0.png";
+                        break;
+                    case 1:
+                        document.getElementById("header").src = "assets/webtitle-1.png";
+                        break;
+                    case 2:
+                        document.getElementById("header").src = "assets/webtitle-2.png";
+                        break;
+                    case 3:
+                        document.getElementById("header").src = "assets/webtitle-3.png";
+                        break;
+                    case 4:
+                        document.getElementById("header").src = "assets/webtitle-4.png";
+                        break;
+                    default: 
+                        document.getElementById("header").src = "assets/webtitle-default.png";
+                        break;
+                }
+                song.play();
+            }
+        }
+    </script>
+    <script>
+
+        // Function to find which type of device you are on
+        const deviceTypeFun = () => {
+            const ua = navigator.userAgent;
+            if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+                return "tablet";
+            }
+            else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+                return "mobile";
+            }
+            return "desktop";
+        };
+
+        // Get the modal
+        var modal = document.getElementById("latest-release-modal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("latest-release-button");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // Find out what type of device you are on
+        const deviceType = deviceTypeFun();
+
+        // If you are on a mobile browser, use the mobile picture
+        // because the button hovers won't have any effect
+        if (deviceType == "mobile"){
+            btn.src = "assets/latestrelease1.png";
+        }
+
+        btn.onmouseenter = function() {
+            btn.src = "assets/latestrelease1.png";
+        }
+        btn.onmouseleave = function() {
+            btn.src = "assets/latestrelease0.png";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    </script>
+</body>
+
+<style>
+    body {
+        background: url("assets/background-symmetrical.jpg");
+        background-position: center;
+        /* background-size: 500%; */
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+    }
+
+    #header {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 20px;
+        height: auto;
+        max-width: 300px;
+    }
+
+    #button-block {
+        padding-bottom: 15px;
+    } .buttons {
+        font-weight: bolder;
+        text-align: center;
+        font-size: 30px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        /* padding: 20px; */
+        border: 1px solid rgb(255, 179, 179);
+        border-width: 2px;
+        width: 290px;
+        height: 70px;
+        display: block;
+        border-radius: 40px;
+        color: rgb(39, 38, 38);
+        transition: color 250ms; 
+        text-decoration: none;
+        background-color: rgb(198,117,239);
+        box-shadow: 0px 0px 5px 5px rgb(217, 141, 255);
+    } .buttons:hover {
+        background: rgba(255, 255, 255, 0.623);
+    }
+    #spotify {
+        max-width: 80%;
+        padding-top: 15px;
+    } #apple {
+        max-width: 55%;
+        padding-top: 5px;
+    } #youtube {
+        max-width: 60%;
+        padding-top: 5px;
+    } #bandcamp {
+        max-width: 80%;
+        padding-top: 20px;
+    }
+
+    #featured {
+        background-color: rgba(169, 169, 169, 0.55);
+    } #featured:hover {
+        background-color: rgba(169, 169, 169, 0.253);
+    }
+
+    #icon-block {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 20px;
+        width: 290px;
+    } .icons-link {
+        display: block;
+        max-width: 75px;
+        max-height: 75px;
+        margin: 10px;
+        border-radius: 10px;
+    } 
+    /* The old link image css
+    .icons-img {
+        display: block;
+        position: relative;
+        max-width: 75px;
+        max-height: 75px;
+        opacity: 1.0;
+        transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
+    }
+    */
+
+    .cross-fade {
+        position:relative;
+        height:75px;
+        width:75px;
+        margin:0 auto;
+    } .cross-fade img {
+        width: auto;
+        height: 100%;
+        position:absolute;
+        left:0;
+        -webkit-transition: opacity 0.3s ease-in-out;
+        -moz-transition: opacity 0.3s ease-in-out;
+        -o-transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.75s ease-in-out;
+    } .cross-fade img.top:hover {
+        opacity:0;
+    }  
+
+    #spotify-player {
+        display: block;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #sitesbysam {
+        display: block;
+        text-align: center;
+        max-width: 100px;
+        color: rgb(255, 255, 255);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        text-decoration: none;
+    }
+    #sitesbysam img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+<style>
+
+    #latest-release-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 290px;
+        /* height: 50px; */
+        color: #fff;
+        /* opacity: 0.7; */
+        /* background: rgba(10, 247, 89, 0.445); */
+        /* border-radius: 35px; */
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-image: url("assets/thefirstquarter-blurred.jpg");
+      margin: 15px auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 10px solid rgb(34, 34, 34);
+      width: 300px; /* Could be more or less, depending on screen size */
+      height: 85%;
+
+    }
+    #latest-release-header {
+        display: block;
+        margin-left: 10%;
+        margin-right: auto;
+        max-width: 80%;
+    }
+    #latest-release-coverart {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 65%;
+        max-height: auto;
+        border: 4px solid gray;
+    }
+    .modal-content p {
+        text-align: center;
+        line-height: .4;
+        font-size: 20px;
+    }
+
+    .latest-release-icon-row {
+        display: flex;
+    }
+    .latest-release-links {
+        display: block;
+        margin: auto;
+        width: 35%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        max-height: auto;
+        border-radius: 100px;
+    }
+    #latest-release-spotify, #latest-release-youtube {
+        padding-left: 20px;
+    }
+    #latest-release-apple, #latest-release-bandcamp {
+        padding-right: 20px;
+    }
+    .latest-release-links img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 100px;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+</style>
+</html>
