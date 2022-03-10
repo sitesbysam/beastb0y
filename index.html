@@ -5,39 +5,17 @@
     <link rel="icon" 
         type="image/png" 
         href="favicon.png">
-    <title>Andrew Cornish Music</title>
+    <title>Beastb0y Music</title>
 </head>
 <body>
     
     <!-- Header -->
-    <img onclick="play_pause('header')" id="header" src="assets/webtitle-default.png">
+    <img onclick="play_pause('header')" id="header" src="assets/logo/hotpotlogo.png">
+    <!-- <h2>Beastb0y</h2> -->
 
-    <!-- Trigger/Open The Modal -->
-    <img id="latest-release-button" src="assets/latestrelease0.png"/>
 
-    <!-- The Modal -->
-    <div id="latest-release-modal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="latest-release-header" src="assets/latestrelease.png"/>
-            <!-- <h2>Latest Release</h2> -->
-            <!-- <iframe id="latest-release-coverart" style="border: 0; width: 350px; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=27971770/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/" seamless></iframe> -->
-            <img id="latest-release-coverart" src="assets/thefirstquarter.jpg"/>
-            <p id="latest-release-title">The First Quarter</p>
-            <p id="latest-release-title">EP</p>
-            <div class="latest-release-icon-row">
-                <a class="latest-release-links" id="latest-release-spotify" href="https://open.spotify.com/album/2gNmKvhHTYMLEtg0ilJD6L"><img src="assets/icons/spotify.svg"/></a>
-                <a class="latest-release-links" id="latest-release-apple"href="https://music.apple.com/us/album/the-first-quarter-ep/1588452959"><img src="assets/icons/apple-music.svg"/></a>
-            </div>
-            <div class="latest-release-icon-row">
-                <a class="latest-release-links" id="latest-release-youtube"href="https://music.youtube.com/playlist?list=OLAK5uy_mo2vFor8Utao6ljv7P-baIip_gNHuPTJs"><img src="assets/icons/Youtube_Music_icon.svg"/></a>
-                <a class="latest-release-links" id="latest-release-bandcamp"href="https://andrewcornishmusic.bandcamp.com/album/the-first-quarter-ep"><img src="assets/icons/bandcamp-button-bc-circle-aqua-128.png"/></a>
-            </div>
-        </div>
-
-    </div>
+    <iframe src="https://open.spotify.com/embed?uri=spotify%3Aartist%3A1eCFzreF4WQ0g2kxjenAoa" width="300" height="380" frameborder="0" style="border-radius: 12px; display: block; margin: 20px; margin-left: auto; margin-right: auto;
+    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0);"allowtransparency="true" allow="encrypted-media"></iframe>
 
     <!-- Buttons -->
     <div id="button-block">
@@ -54,12 +32,14 @@
                 <img class="bottom" id="website-hover" src="assets/icons/website-hover.png">
                 <img class="top" id="website" src="assets/icons/website.png">
             </div>
+            
         </a>
         <a class="icons-link" id="email-link" href="mailto:music@andrewcornish.me">
             <div class="cross-fade">
                 <img id="email-hover" class="bottom" src="assets/icons/email-hover.png">
                 <img id="email" class="top" src="assets/icons/email.png">
             </div>
+
         </a>
         <!--<a class="icons-link" id="instagram-link" href="https://www.instagram.com/andrewcornishmusic/"><img id="instagram" onmouseenter="icon_fade('instagram', true)" onmouseleave="icon_fade('instagram', false)" class="icons-img" src="assets/icons/instagram.png"></a>-->
         <a class="icons-link" id="instagram-link" href="https://www.instagram.com/andrewcornishmusic/">
@@ -175,7 +155,8 @@
 
 <style>
     body {
-        background: url("assets/background-symmetrical.jpg");
+        background: url("assets/darkocculteyestar-rotated.jpg");
+        mask-repeat: no-repeat;
         background-position: center;
         /* background-size: 500%; */
         color: #fff;
@@ -189,7 +170,8 @@
         margin-right: auto;
         padding-top: 20px;
         height: auto;
-        max-width: 300px;
+        max-width: 75%;
+        box-shadow: 0px 0px 10px 10px rgb(28, 11, 36);
     }
 
     #button-block {
@@ -203,7 +185,7 @@
         margin-left: auto;
         margin-right: auto;
         /* padding: 20px; */
-        border: 1px solid rgb(255, 179, 179);
+        /* border: 1px solid rgb(255, 179, 179); */
         border-width: 2px;
         width: 290px;
         height: 70px;
@@ -212,10 +194,13 @@
         color: rgb(39, 38, 38);
         transition: color 250ms; 
         text-decoration: none;
-        background-color: rgb(198,117,239);
-        box-shadow: 0px 0px 5px 5px rgb(217, 141, 255);
+        background-color: rgb(0, 0, 0);
+        box-shadow: 0px 0px 5px 5px rgb(255, 0, 0);
+        transition: 1s;
     } .buttons:hover {
-        background: rgba(255, 255, 255, 0.623);
+        background: rgba(255, 0, 0, 0.555);
+        box-shadow: 0px 0px 5px 5px rgba(255, 0, 0, 0.555);
+        transition: 1s;
     }
     #spotify {
         max-width: 80%;
